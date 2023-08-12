@@ -66,7 +66,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[500],
             },
             secundary: {
-              main: colors.red[500],
+              main: colors.secondary[500],
             },
             background: {
               default: colors.primary[500],
@@ -77,7 +77,7 @@ export const themeSettings = (mode) => {
               main: colors.primary[500],
             },
             secundary: {
-              main: colors.red[500],
+              main: colors.secondary[500],
             },
             background: {
               default: "#fcfcfc",
