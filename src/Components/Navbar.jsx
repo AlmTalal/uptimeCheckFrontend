@@ -1,8 +1,6 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import goQuantsLogo from "../assets/goQuantsLogo.png";
-import goQuantsBlackLogo from "../assets/goQuantsBlackLogo.png";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useContext } from "react";
@@ -25,25 +23,10 @@ export default function Navbar() {
         backgroundColor={colors.primary[500]}
         height={"80px"}
       >
-        <Box width={"170px"} height={"45px"} overflow={"hidden"}>
-          {theme.pallete.mode === "dark" ? (
-            <img
-              rel="icon"
-              src={goQuantsLogo}
-              style={{ objectFit: "cover", height: "100%", width: "100%" }}
-            />
-          ) : (
-            <img
-              rel="icon"
-              src={goQuantsBlackLogo}
-              style={{ objectFit: "cover", height: "100%", width: "100%" }}
-            />
-          )}
-        </Box>
         <Box>
           <Typography
             color={colors.secondary[500]}
-            variant="h3"
+            variant="h4"
             fontWeight={"bold"}
           >
             About This Project
