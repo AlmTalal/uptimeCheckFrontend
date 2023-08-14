@@ -3,8 +3,7 @@ import { tokens } from "../theme";
 import { ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme.js";
 import Navbar from "./Components/Navbar";
-import Status from "./Screen/Status";
-import WebMaintanaceAnouncements from "./Screen/WebMaintanaceAnouncements";
+import StatusScreen from "./Screen/StatusScreen/StatusScreen";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -17,8 +16,7 @@ function App() {
           <Box backgroundColor={colors.primary[500]} height={"100%"}>
             <Navbar />
             <main>
-              <Status />
-              <WebMaintanaceAnouncements />
+              <StatusScreen />
             </main>
           </Box>
         </ThemeProvider>

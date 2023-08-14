@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
-import { tokens } from "../../theme";
-import MaintenanceNoticeBox from "../Components/Common/MaintenanceNoticeBox";
+import { tokens } from "../../../theme";
+import MaintenanceNoticeBox from "../../Components/Common/MaintenanceNoticeBox";
 
 export default function WebMaintanaceAnouncements() {
   const theme = useTheme();
