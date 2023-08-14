@@ -4,6 +4,8 @@ import { ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme.js";
 import Navbar from "./Components/Navbar";
 import StatusScreen from "./Screen/StatusScreen/StatusScreen";
+import { Route, Routes } from "react-router-dom";
+import LoginScreen from "./Screen/Login/LoginScreen";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -16,7 +18,10 @@ function App() {
           <Box backgroundColor={colors.primary[500]} height={"100%"}>
             <Navbar />
             <main>
-              <StatusScreen />
+              <Routes>
+                <Route path="/" Component={StatusScreen} />
+                <Route path="/login" Component={LoginScreen} />
+              </Routes>
             </main>
           </Box>
         </ThemeProvider>
