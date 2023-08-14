@@ -23,7 +23,15 @@ export default function Navbar() {
         backgroundColor={colors.primary[500]}
         height={"80px"}
       >
-        <Box>
+        <Box
+          onClick={() =>
+            window.open(
+              "https://medium.com/@alamtalal004/how-to-do-a-page-that-checks-the-current-status-of-your-pages-and-apis-with-mongo-sockets-and-gcc-bc876193a24",
+              "_blank"
+            )
+          }
+          sx={{ cursor: "pointer" }}
+        >
           <Typography
             color={colors.secondary[500]}
             variant="h4"
