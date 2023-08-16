@@ -2,17 +2,15 @@ import { Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useTheme } from "@emotion/react";
 import { tokens } from "../../../theme";
-import { io } from "socket.io-client";
 import StatusBox from "../../Components/Common/StatusBox";
-const socket = io("https://uptime-check-backend.onrender.com");
-//const socket = io("http://localhost:3001");
+import socketClient from "../../services/socketClient";
 
 export default function Status() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
   const [uptimeChecks, setUptimeCheck] = useState();
 
-  socket.on("currentUptimeChecks", (newUptimeCheck) => {
+  socketClient.on("currentUptimeChecks", (newUptimeCheck) => {
     setUptimeCheck(newUptimeCheck);
   });
   useEffect(() => {}, [uptimeChecks]);
