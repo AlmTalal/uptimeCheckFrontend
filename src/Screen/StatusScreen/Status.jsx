@@ -10,10 +10,19 @@ export default function Status() {
   const colors = tokens(theme.pallete.mode);
   const [uptimeChecks, setUptimeCheck] = useState();
 
+  //Listens to changes in the Uptime Checks
   socketClient.on("currentUptimeChecks", (newUptimeCheck) => {
     setUptimeCheck(newUptimeCheck);
   });
-  useEffect(() => {}, [uptimeChecks]);
+
+  //Get the uptime Check the first time that the component is rendered
+  const setChecks = (uptimeChecks) => {
+    setUptimeCheck(uptimeChecks);
+  };
+
+  useEffect(() => {
+    socketClient.emit("giveUptimeChecks", setChecks);
+  }, [uptimeChecks]);
 
   return (
     <Grid
