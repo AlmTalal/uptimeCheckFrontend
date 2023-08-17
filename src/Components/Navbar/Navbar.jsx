@@ -4,11 +4,12 @@ import Box from "@mui/material/Box";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useContext } from "react";
-import { tokens, ColorModeContext } from "../../theme";
+import { tokens, ColorModeContext } from "../../../theme";
 import { useTheme } from "@emotion/react";
 import AddIcon from "@mui/icons-material/Add";
-import { useAuth } from "../Contexts/AuthProvider";
+import { useAuth } from "../../Contexts/AuthProvider";
 import { Typography } from "@mui/material";
+import styles from "./styles";
 
 export default function Navbar() {
   const theme = useTheme();
@@ -18,32 +19,19 @@ export default function Navbar() {
 
   return (
     <AppBar position="static">
-      <Box
-        display={"flex"}
-        flexDirection={"row"}
-        justifyContent={"space-evenly"}
-        alignItems={"center"}
-        backgroundColor={colors.primary[500]}
-        height={"80px"}
-      >
+      <Box sx={styles.navBarBox} backgroundColor={colors.primary[500]}>
         <Typography
           variant="h3"
           fontWeight={"bold"}
+          sx={{ cursor: "pointer" }}
           onClick={() =>
             window.open("https://talal-dev.onrender.com/", "_blank")
           }
-          sx={{ cursor: "pointer" }}
         >
           Talal.dev
         </Typography>
 
-        <Box
-          width={"80px"}
-          height={"80px"}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-        >
+        <Box sx={styles.iconBox}>
           {theme.pallete.mode === "dark" ? (
             <LightModeIcon
               style={{
@@ -69,9 +57,6 @@ export default function Navbar() {
                 color: colors.secondary[400],
                 width: "40%",
                 height: "40%",
-              }}
-              onClick={() => {
-                () => console.log("clicked");
               }}
             />
           ) : null}

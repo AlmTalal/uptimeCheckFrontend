@@ -1,8 +1,8 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { tokens } from "../theme";
 import { ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme.js";
-import Navbar from "./Components/Navbar";
+import Navbar from "./Components/Navbar/Navbar";
 import StatusScreen from "./Screen/StatusScreen/StatusScreen";
 import { Route, Routes } from "react-router-dom";
 import LoginScreen from "./Screen/Login/LoginScreen";
