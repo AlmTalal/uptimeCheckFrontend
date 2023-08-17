@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from "react";
 import socket from "../../services/socketClient";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../../Components/Common/Alerts";
-import { useAuth } from "../../Contexts/AuthProvider";
+import { useAuth, setAuth } from "../../Contexts/AuthProvider";
 
 export default function LoginScreen() {
   const theme = useTheme();
@@ -15,6 +15,7 @@ export default function LoginScreen() {
   const emailRef = useRef();
   const navigate = useNavigate();
   const [error, setError] = useState();
+  const handleAuth = setAuth();
 
   const submit = async (event) => {
     event.preventDefault();
@@ -30,6 +31,7 @@ export default function LoginScreen() {
     const [isAuthed, token, error] = auth;
     if (isAuthed) {
       localStorage.setItem("token", token);
+      handleAuth();
       navigate("/");
     } else {
       setError(error);
