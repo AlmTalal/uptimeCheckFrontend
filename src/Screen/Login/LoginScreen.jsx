@@ -28,6 +28,7 @@ export default function LoginScreen() {
   };
 
   const handleAuthentication = (auth) => {
+    console.log(auth);
     const [isAuthed, token, error] = auth;
     if (isAuthed) {
       localStorage.setItem("token", token);
