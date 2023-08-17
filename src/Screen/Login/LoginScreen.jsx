@@ -1,14 +1,16 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import { tokens } from "../../../theme";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import socket from "../../services/socketClient";
 import { useNavigate } from "react-router-dom";
 import Alerts from "../../Components/Common/Alerts";
+import { useAuth } from "../../Contexts/AuthProvider";
 
 export default function LoginScreen() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
+  const auth = useAuth();
   const passwordRef = useRef();
   const emailRef = useRef();
   const navigate = useNavigate();
@@ -20,6 +22,7 @@ export default function LoginScreen() {
       mail: emailRef.current.value,
       password: passwordRef.current.value,
     };
+    //Call the event for authenticating on the server side
     socket.emit("authUser", user, handleAuthentication);
   };
 
@@ -32,6 +35,10 @@ export default function LoginScreen() {
       setError(error);
     }
   };
+
+  useEffect(() => {
+    auth ? navigate("/") : null;
+  });
 
   return (
     <Box
