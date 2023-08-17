@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { tokens } from "../theme";
 import { ThemeProvider } from "@mui/material";
 import { ColorModeContext, useMode } from "../theme.js";
@@ -9,6 +9,7 @@ import LoginScreen from "./Screen/Login/LoginScreen";
 import AuthProvider from "./Contexts/AuthProvider";
 import { useAuth } from "./Contexts/AuthProvider";
 import { useEffect } from "react";
+import Footer from "./Components/Footer";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/login" Component={LoginScreen} />
                 </Routes>
               </main>
+              <Footer />
             </Box>
           </AuthProvider>
         </ThemeProvider>
