@@ -7,11 +7,14 @@ import { useContext } from "react";
 import { tokens, ColorModeContext } from "../../theme";
 import { Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
+import AddIcon from "@mui/icons-material/Add";
+import { useAuth } from "../Contexts/AuthProvider";
 
 export default function Navbar() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
   const colorMode = useContext(ColorModeContext);
+  const hasAuth = useAuth();
 
   return (
     <AppBar position="static">
@@ -45,7 +48,7 @@ export default function Navbar() {
           height={"80px"}
           display={"flex"}
           alignItems={"center"}
-          onClick={colorMode.toggleColorMode}
+          justifyContent={"space-between"}
         >
           {theme.pallete.mode === "dark" ? (
             <LightModeIcon
@@ -54,6 +57,7 @@ export default function Navbar() {
                 width: "30%",
                 height: "30%",
               }}
+              onClick={colorMode.toggleColorMode}
             />
           ) : (
             <DarkModeIcon
@@ -62,11 +66,23 @@ export default function Navbar() {
                 width: "30%",
                 height: "30%",
               }}
+              onClick={colorMode.toggleColorMode}
             />
           )}
+          {hasAuth ? (
+            <AddIcon
+              style={{
+                color: colors.secondary[400],
+                width: "40%",
+                height: "40%",
+              }}
+              onClick={() => {
+                () => console.log("clicked");
+              }}
+            />
+          ) : null}
         </Box>
       </Box>
     </AppBar>
   );
 }
-//sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
