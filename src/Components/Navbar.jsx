@@ -5,10 +5,10 @@ import LightModeIcon from "@mui/icons-material/LightMode";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useContext } from "react";
 import { tokens, ColorModeContext } from "../../theme";
-import { Typography } from "@mui/material";
 import { useTheme } from "@emotion/react";
 import AddIcon from "@mui/icons-material/Add";
 import { useAuth } from "../Contexts/AuthProvider";
+import { Typography } from "@mui/material";
 
 export default function Navbar() {
   const theme = useTheme();
@@ -26,23 +26,17 @@ export default function Navbar() {
         backgroundColor={colors.primary[500]}
         height={"80px"}
       >
-        <Box
+        <Typography
+          variant="h3"
+          fontWeight={"bold"}
           onClick={() =>
-            window.open(
-              "https://medium.com/@alamtalal004/how-to-do-a-page-that-checks-the-current-status-of-your-pages-and-apis-with-mongo-sockets-and-gcc-bc876193a24",
-              "_blank"
-            )
+            window.open("https://talal-dev.onrender.com/", "_blank")
           }
           sx={{ cursor: "pointer" }}
         >
-          <Typography
-            color={colors.secondary[500]}
-            variant="h4"
-            fontWeight={"bold"}
-          >
-            About This Project
-          </Typography>
-        </Box>
+          Talal.dev
+        </Typography>
+
         <Box
           width={"80px"}
           height={"80px"}
