@@ -5,8 +5,8 @@ import WebMaintinance from "./WebMaintanaceAnouncements";
 export default function StatusScreen() {
   return (
     <>
-      <Status />
       <WebMaintinance />
+      <Status />
     </>
   );
 }
