@@ -6,8 +6,6 @@ import DarkModeIcon from "@mui/icons-material/DarkMode";
 import { useContext } from "react";
 import { tokens, ColorModeContext } from "../../../theme";
 import { useTheme } from "@emotion/react";
-import AddIcon from "@mui/icons-material/Add";
-import { useAuth } from "../../Contexts/AuthProvider";
 import { Typography } from "@mui/material";
 import styles from "./styles";
 
@@ -15,7 +13,6 @@ export default function Navbar() {
   const theme = useTheme();
   const colors = tokens(theme.pallete.mode);
   const colorMode = useContext(ColorModeContext);
-  const hasAuth = useAuth();
 
   return (
     <AppBar position="static">
@@ -51,15 +48,6 @@ export default function Navbar() {
               onClick={colorMode.toggleColorMode}
             />
           )}
-          {hasAuth ? (
-            <AddIcon
-              style={{
-                color: colors.secondary[400],
-                width: "40%",
-                height: "40%",
-              }}
-            />
-          ) : null}
         </Box>
       </Box>
     </AppBar>
